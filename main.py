@@ -4,11 +4,20 @@ import feedparser
 
 app = FastAPI()
 
+#app.add_middleware(
+#    CORSMiddleware,
+#    allow_origins=["*"],  # autorise tout pour test
+#    allow_methods=["*"],
+#    allow_headers=["*"],
+#)
+
+allow_all = ['*']
 app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # autorise tout pour test
-    allow_methods=["*"],
-    allow_headers=["*"],
+   CORSMiddleware,
+   allow_origins=allow_all,
+   allow_credentials=True,
+   allow_methods=allow_all,
+   allow_headers=allow_all
 )
 
 keywords_by_category = {
